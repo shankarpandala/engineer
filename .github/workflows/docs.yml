@@ -7,16 +7,14 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: "pages"
+  group: "docs"
   cancel-in-progress: true
 
 jobs:
   build:
-    name: Build Docs
+    name: Build & Deploy Docs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -37,19 +35,16 @@ jobs:
       - name: Build docs
         run: uv run mkdocs build --strict
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to website repo
+        uses: cpina/github-action-push-to-another-repository@v1.7.2
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.DOCS_DEPLOY_KEY }}
         with:
-          path: site/
-
-  deploy:
-    name: Deploy to GitHub Pages
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          source-directory: site/
+          destination-github-username: ml4t
+          destination-repository-name: website
+          target-directory: static/docs/engineer/
+          target-branch: main
+          commit-message: "docs(engineer): update from ml4t/engineer@${{ github.sha }}"
+          user-name: ml4t-bot
+          user-email: bot@ml4trading.io
