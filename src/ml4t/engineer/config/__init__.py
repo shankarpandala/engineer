@@ -25,6 +25,7 @@ from ml4t.engineer.config.experiment import (
 )
 from ml4t.engineer.config.labeling import LabelingConfig
 from ml4t.engineer.config.preprocessing_config import PreprocessingConfig
+from ml4t.engineer.config.spec_bridge import data_contract_from_market_data_spec
 
 __all__ = [
     # Base configs
@@ -34,6 +35,7 @@ __all__ = [
     # Labeling and preprocessing configs
     "LabelingConfig",
     "DataContractConfig",
+    "data_contract_from_market_data_spec",
     "PreprocessingConfig",
     # Experiment config loading
     "ExperimentConfig",

@@ -1,11 +1,11 @@
 """Tests for DataContractConfig."""
 
 import sys
-from types import ModuleType
+from types import ModuleType, SimpleNamespace
 
 import pytest
 
-from ml4t.engineer.config import DataContractConfig
+from ml4t.engineer.config import DataContractConfig, data_contract_from_market_data_spec
 
 
 class TestDataContractConfig:
@@ -91,3 +91,49 @@ class TestDataContractConfig:
         assert contract.close_col == "last_price"
         assert contract.price_col == "last_price"
         assert contract.volume_col == "volume_base"
+
+    def test_from_market_data_spec_mapping(self):
+        """Shared market-data mappings should convert into engineer contracts."""
+        contract = data_contract_from_market_data_spec(
+            {
+                "kind": "market_data",
+                "schema": {
+                    "timestamp_col": "ts_event",
+                    "entity_col": "asset_id",
+                    "open_col": "open_price",
+                    "high_col": "high_price",
+                    "low_col": "low_price",
+                    "close_col": "mid_close",
+                    "volume_col": "trade_count",
+                },
+            }
+        )
+
+        assert contract.timestamp_col == "ts_event"
+        assert contract.symbol_col == "asset_id"
+        assert contract.price_col == "mid_close"
+        assert contract.open_col == "open_price"
+        assert contract.high_col == "high_price"
+        assert contract.low_col == "low_price"
+        assert contract.close_col == "mid_close"
+        assert contract.volume_col == "trade_count"
+
+    def test_from_market_data_spec_object(self):
+        """Object-based shared market-data specs should also convert cleanly."""
+        spec = SimpleNamespace(
+            schema=SimpleNamespace(
+                timestamp_col="bar_end",
+                entity_col="symbol",
+                close_col="close_bid_price",
+            )
+        )
+
+        contract = data_contract_from_market_data_spec(spec)
+        assert contract.timestamp_col == "bar_end"
+        assert contract.symbol_col == "symbol"
+        assert contract.price_col == "close_bid_price"
+        assert contract.close_col == "close_bid_price"
+        assert contract.open_col == "open"
+        assert contract.high_col == "high"
+        assert contract.low_col == "low"
+        assert contract.volume_col == "volume"
