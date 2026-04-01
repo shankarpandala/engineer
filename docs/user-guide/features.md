@@ -21,6 +21,9 @@ ML4T Engineer provides 120 technical indicators across 11 categories, built on P
 
 > **Book**: *ML for Trading, 3rd ed.* — Ch8 notebooks (`01_price_volume_features.py` through `04_fundamentals_macro_calendar.py`) build features manually to explain the economics. Case studies (ETFs, US Equities Panel, CME Futures) then use `compute_features()` in production pipelines.
 
+Use the [Book Guide](../book-guide/index.md) for the full notebook-to-API map
+across Chapters 7-9 and the case studies.
+
 ## Computation API
 
 `compute_features()` accepts three input formats:
@@ -383,6 +386,24 @@ Invalid parameters raise `ValueError` with the valid parameter names.
 - **Throughput**: ~480K indicator calculations/second, 11M rows/second streaming
 - **TA-Lib parity**: RSI computed at ~1x TA-Lib speed via Polars native implementation
 - **Dependency ordering**: `compute_features` resolves feature dependencies via topological sort
+
+## See It In The Book
+
+- Ch8 `01_price_volume_features.py` through `04_fundamentals_macro_calendar.py` for
+  the main feature-engineering concepts
+- Ch7 `10_ml4t_library_ecosystem.py` for the config-driven `compute_features` API
+- Case-study `03_features.py` workflows for production usage
+- [Book Guide](../book-guide/index.md) for the full chapter and case-study map
+
+## Next Steps
+
+- Read [Feature Discovery](discovery.md) to choose features through metadata and
+  search instead of hardcoding.
+- Read [ML Readiness](ml-readiness.md) to separate normalized from non-normalized
+  outputs.
+- Read [Dataset Builder](dataset-builder.md) when features are ready to move into
+  training workflows.
+- Use the [API Reference](../api/index.md) for exact function and module locations.
 
 ## References
 

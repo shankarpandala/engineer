@@ -2,6 +2,10 @@
 
 Get up and running with ML4T Engineer in 5 minutes.
 
+If you are coming from *Machine Learning for Trading, Third Edition*, pair this page
+with the [Book Guide](../book-guide/index.md) to jump from notebook examples to the
+matching reusable library workflows.
+
 ## Basic Feature Computation
 
 ```python
@@ -103,4 +107,5 @@ print(info)
 - [Feature Discovery](../user-guide/discovery.md) - Registry, catalog, and search API
 - [Fractional Differencing](../user-guide/fractional-differencing.md) - Memory-preserving stationarity
 - [Dataset Builder](../user-guide/dataset-builder.md) - Leakage-safe train/test preparation
+- [Book Guide](../book-guide/index.md) - Chapter and case-study map for the book
 - [API Reference](../api/index.md) - Complete API documentation

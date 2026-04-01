@@ -5,9 +5,9 @@ and performance. It provides tools for feature engineering, labeling, and prepro
 for financial machine learning models.
 
 Agent Navigation:
-    This package includes AGENT.md files for AI agent navigation.
+    This package includes AGENTS.md files for AI agent navigation.
     Call `get_agent_docs()` to get paths to all documentation files.
-    Start with the root AGENT.md for package overview and navigation.
+    Start with the root AGENTS.md for package overview and navigation.
 """
 
 from importlib.metadata import PackageNotFoundError as _PackageNotFoundError
@@ -54,7 +54,7 @@ except Exception:
 
 
 def get_agent_docs() -> dict[str, _Path]:
-    """Get paths to AGENT.md documentation files for AI agent navigation.
+    """Get paths to AGENTS.md documentation files for AI agent navigation.
 
     Returns a dict mapping logical names to file paths. Start with 'root'
     for package overview, then drill into specific areas as needed.
@@ -68,6 +68,11 @@ def get_agent_docs() -> dict[str, _Path]:
         - 'features/{category}': Category-specific signatures
         - 'labeling': ML label generation methods
         - 'bars': Alternative bar sampling
+        - 'core', 'core/calendars': Registry and validation internals
+        - 'config': Reusable configuration models
+        - 'discovery': Metadata-driven feature search
+        - 'artifacts', 'relationships', 'store', 'logging', 'utils': Secondary
+          package areas with their own navigation guides
 
     Example
     -------
@@ -76,24 +81,37 @@ def get_agent_docs() -> dict[str, _Path]:
     >>> print(docs['root'].read_text()[:200])  # Read overview
     """
     pkg_dir = _Path(__file__).parent
-    docs = {}
+    docs: dict[str, _Path] = {}
 
     # Root and package-level
-    if (p := pkg_dir / "AGENT.md").exists():
+    if (p := pkg_dir / "AGENTS.md").exists():
         docs["root"] = p
 
     # Features index and categories
     features_dir = pkg_dir / "features"
-    if (p := features_dir / "AGENT.md").exists():
+    if (p := features_dir / "AGENTS.md").exists():
         docs["features"] = p
     for category_dir in features_dir.iterdir():
-        if category_dir.is_dir() and (p := category_dir / "AGENT.md").exists():
+        if category_dir.is_dir() and (p := category_dir / "AGENTS.md").exists():
             docs[f"features/{category_dir.name}"] = p
 
     # Other modules
-    for module in ["labeling", "bars"]:
-        if (p := pkg_dir / module / "AGENT.md").exists():
+    for module in [
+        "labeling",
+        "bars",
+        "core",
+        "config",
+        "discovery",
+        "artifacts",
+        "relationships",
+        "store",
+        "logging",
+        "utils",
+    ]:
+        if (p := pkg_dir / module / "AGENTS.md").exists():
             docs[module] = p
+    if (p := pkg_dir / "core" / "calendars" / "AGENTS.md").exists():
+        docs["core/calendars"] = p
 
     return docs
 

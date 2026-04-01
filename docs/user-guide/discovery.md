@@ -2,6 +2,13 @@
 
 ML4T Engineer provides two complementary discovery APIs: the **Feature Registry** for programmatic metadata access, and the **Feature Catalog** for interactive exploration with filtering and search.
 
+If you are arriving from Ch7 `10_ml4t_library_ecosystem.py`, the
+[Book Guide](../book-guide/index.md) shows where discovery fits relative to feature
+computation, labeling, and dataset preparation.
+
+Use this page when you are choosing features, validating metadata, or building
+registry-driven workflows instead of hardcoding indicator names.
+
 ## Feature Registry
 
 The registry is the metadata backbone — every feature registers its name, category, parameters, input requirements, and validation status.
@@ -159,4 +166,14 @@ feature_catalog.tags()
 | `tags` | `list[str]` | Searchable tags |
 | `lookback` | `Callable` | Function returning minimum lookback period |
 
-> **Book**: *ML for Trading, 3rd ed.* — Ch7 `10_ml4t_library_ecosystem.py` explores the registry metadata for RSI, ATR, and Garman-Klass, then demonstrates `feature_catalog.search()` and filtered listing.
+## See It In The Book
+
+- Ch7 `10_ml4t_library_ecosystem.py` for registry inspection and catalog search
+- [Book Guide](../book-guide/index.md) for how discovery connects to feature
+  computation, labeling, and dataset preparation
+
+## Next Steps
+
+- Read [Features](features.md) to turn chosen metadata into actual feature pipelines.
+- Read [ML Readiness](ml-readiness.md) if feature selection depends on normalization.
+- Use the [API Reference](../api/index.md) for exact object locations.

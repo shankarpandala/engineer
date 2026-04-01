@@ -1,5 +1,8 @@
 # Installation
 
+Use this page when you want to install `ml4t-engineer`, verify the package surface,
+and then move directly into the first workflow.
+
 ## Requirements
 
 - Python 3.12 or higher
@@ -10,6 +13,8 @@
 ```bash
 pip install ml4t-engineer
 ```
+
+If you standardize on `uv`, `uv pip install ml4t-engineer` is equivalent.
 
 ## Install from Source
 
@@ -55,3 +60,10 @@ Expected output:
 Total features: 120
 Categories: ['math', 'microstructure', 'ml', 'momentum', 'price_transform', 'regime', 'risk', 'statistics', 'trend', 'volatility', 'volume']
 ```
+
+## Next Steps
+
+- Read [Quickstart](quickstart.md) for a first working feature and labeling example.
+- Read the [Book Guide](../book-guide/index.md) if you are coming from the book or
+  case studies.
+- Use the [API Reference](../api/index.md) once you need exact object locations.

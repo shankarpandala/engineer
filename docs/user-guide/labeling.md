@@ -18,6 +18,9 @@ All methods return a Polars DataFrame with standardized output columns. Performa
 
 > **Book**: *ML for Trading, 3rd ed.* — Ch7 `03_label_methods.py` walks through all 7 methods on real ETF data with visualizations. All case study `02_labels.py` notebooks apply these methods in production pipelines.
 
+Use the [Book Guide](../book-guide/index.md) for the broader mapping from Chapter 7
+and case-study `02_labels.py` files to the production labeling APIs.
+
 ## Choosing a Method
 
 ```
@@ -514,6 +517,22 @@ Time-based horizons require a `timestamp_col` in the input DataFrame.
 4. **Use ATR barriers for multi-asset**: Fixed barriers work for single-asset studies but fail across assets with different volatility levels.
 
 5. **Time-based horizons for irregular data**: If your bars are not equally spaced (e.g., volume bars), use duration strings (`"4h"`) instead of bar counts to ensure consistent holding periods.
+
+## See It In The Book
+
+- Ch7 `03_label_methods.py` for the full comparison of labeling methods
+- Ch7 `04_minimum_favorable_adverse_excursion.py` for barrier behavior analysis
+- Case-study `02_labels.py` workflows, especially CME Futures for ATR barriers
+- [Book Guide](../book-guide/index.md) for the full chapter and case-study map
+
+## Next Steps
+
+- Read [Dataset Builder](dataset-builder.md) when labeled data moves into training
+  and CV workflows.
+- Read [Preprocessing](preprocessing.md) if labels are part of a broader feature
+  preparation pipeline.
+- Use the [API Reference](../api/index.md) for the full labeling surface and config
+  objects.
 
 ## References
 

@@ -7,35 +7,23 @@ site_url: https://ml4trading.io/docs/engineer/
 repo_url: https://github.com/ml4t/engineer
 repo_name: ml4t/engineer
 
-# Theme configuration - Picasso Blue Period palette
+# Theme configuration — shared ml4t-docs-theme for website integration
 theme:
-  name: material
-  custom_dir: docs/overrides
+  name: ml4t-docs-theme
 
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: ml4t
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: custom
-      accent: amber
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+    scheme: default
+    primary: custom
+    accent: custom
 
-  font:
-    text: DM Sans
-    code: JetBrains Mono
+  font: false
 
   features:
     - navigation.tabs
     - navigation.tabs.sticky
+    - navigation.indexes
     - navigation.sections
     - navigation.expand
-    - navigation.path
     - navigation.top
     - navigation.footer
     - toc.follow
@@ -47,10 +35,6 @@ theme:
 
   icon:
     repo: fontawesome/brands/github
-
-# Custom CSS for Picasso palette
-extra_css:
-  - stylesheets/ml4t-theme.css
 
 # Extensions
 markdown_extensions:
@@ -128,6 +112,8 @@ nav:
     - ML Readiness: user-guide/ml-readiness.md
   - API Reference:
     - api/index.md
+  - Book Guide:
+    - book-guide/index.md
 
 # Extra configuration
 extra:

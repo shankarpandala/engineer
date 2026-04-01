@@ -2,6 +2,12 @@
 
 Fractional differencing (FFD) produces stationary time series while preserving long-range memory — the key insight from De Prado (2018, Chapter 5). Standard first-differencing (d=1) achieves stationarity but destroys predictive signal; fractional differencing finds the minimum d that passes stationarity tests.
 
+Use the [Book Guide](../book-guide/index.md) for the surrounding Chapter 9 workflow
+and the case-study files that use FFD in production pipelines.
+
+Use this page when you need stationary inputs but do not want to destroy the
+predictive structure in price series with full differencing.
+
 ## The Memory-Stationarity Tradeoff
 
 | Differencing Degree | Stationarity | Memory Preserved | ML Utility |
@@ -180,7 +186,18 @@ for symbol in ["SPY", "QQQ", "IWM"]:
 - Weight truncation via `threshold` limits computation window
 - Typical: 383 lines of implementation for the full module
 
-> **Book**: *ML for Trading, 3rd ed.* — Ch9 `03_fractional_differencing.py` applies FFD to equity data with ADF test validation and memory-stationarity analysis. The ETFs and US Equities Panel case studies use FFD in their `04_temporal.py` notebooks as a standard feature preparation step.
+## See It In The Book
+
+- Ch9 `03_fractional_differencing.py` for the memory-stationarity tradeoff
+- ETFs and US Equities Panel `04_temporal.py` workflows for production usage
+- [Book Guide](../book-guide/index.md) for the full chapter and case-study map
+
+## Next Steps
+
+- Read [Features](features.md) to combine FFD with the broader feature pipeline.
+- Read [Dataset Builder](dataset-builder.md) if the transformed series feed model
+  training workflows next.
+- Use the [API Reference](../api/index.md) for exact function locations.
 
 ## References
 

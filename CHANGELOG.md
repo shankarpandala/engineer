@@ -88,8 +88,8 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 - `get_agent_docs()` for AI agent discoverability
-- Hierarchical AGENT.md navigation files
-- AGENT.md files included in wheel builds
+- Hierarchical AGENTS.md navigation files
+- AGENTS.md files included in wheel builds
 
 ### Fixed
 - `variance_ratio` Int64 bug

@@ -14,8 +14,8 @@ version-file = "src/ml4t/engineer/_version.py"
 [tool.hatch.build.targets.wheel]
 packages = ["src/ml4t"]
 namespaces = true
-# Include AGENT.md files for agent navigation
-artifacts = ["src/ml4t/**/AGENT.md"]
+# Include AGENTS.md files for agent navigation
+artifacts = ["src/ml4t/**/AGENTS.md"]
 
 [tool.hatch.build.targets.sdist]
 include = [
@@ -71,7 +71,7 @@ requires-python = ">=3.12"
 
 # Core dependencies
 dependencies = [
-    "ml4t-data>=0.1.0b7",
+    "ml4t-specs>=0.1.0b0",
 
     # Data processing (Polars-first)
     "polars>=0.20.0",
@@ -291,4 +291,4 @@ exclude_lines = [
 ]
 
 [tool.uv.sources]
-ml4t-data = { path = "../ml4t-data", editable = true }
+ml4t-specs = { path = "../ml4t-specs", editable = true }

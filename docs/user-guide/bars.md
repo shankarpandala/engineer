@@ -2,7 +2,13 @@
 
 Transform tick data into information-driven bars instead of time-based bars.
 
+Use this page when you want to replace time bars with sampling schemes that better
+match market activity and microstructure dynamics.
+
 > **Book**: *ML for Trading, 3rd ed.* — Ch3 `08_itch_bar_sampling.py` constructs tick, volume, and dollar bars from ITCH trade data. `10_itch_information_bars.py` builds imbalance bars with threshold analysis. `13_databento_bar_sampling.py` demonstrates bar sampling on Databento data.
+
+Use the [Book Guide](../book-guide/index.md) for the chapter-level map from the
+microstructure notebooks to the production sampler classes.
 
 ## Why Alternative Bars?
 
@@ -398,6 +404,19 @@ inner loops for optimal performance. For very large datasets, consider:
 1. Processing data in daily chunks
 2. Using the streaming API for out-of-memory datasets
 3. Caching computed bars rather than recomputing
+
+## See It In The Book
+
+- Ch3 `08_itch_bar_sampling.py` for tick, volume, and dollar bars
+- Ch3 `10_itch_information_bars.py` for imbalance-bar intuition and diagnostics
+- Ch3 `13_databento_bar_sampling.py` for a modern market-data workflow
+- [Book Guide](../book-guide/index.md) for the full chapter-to-API map
+
+## Next Steps
+
+- Read [Features](features.md) if bar outputs feed a feature pipeline next.
+- Read [Labeling](labeling.md) if you are constructing labels on bar data.
+- Use the [API Reference](../api/index.md) for the full sampler surface.
 
 ## References
 

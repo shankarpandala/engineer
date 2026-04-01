@@ -2,6 +2,9 @@
 
 ML4T Engineer provides sklearn-compatible scalers built on Polars for leakage-safe feature preprocessing.
 
+Use this page when your engineered features are not yet on model-friendly scales or
+when you need train-only transforms without leakage.
+
 ## Scalers
 
 All scalers follow the sklearn pattern: `fit()` on training data, `transform()` on any data. This prevents information leakage from test data into training.
@@ -168,4 +171,15 @@ builder = create_dataset_builder(
 X_train, X_test, y_train, y_test = builder.train_test_split(train_size=0.8)
 ```
 
-> **Book**: *ML for Trading, 3rd ed.* — Ch7 `02_preprocessing_pipeline.py` demonstrates split-aware preprocessing with StandardScaler in a feature preparation pipeline. See also the [ML-Readiness guide](ml-readiness.md) for which features need preprocessing vs. which are ML-ready out of the box.
+## See It In The Book
+
+- Ch7 `02_preprocessing_pipeline.py` for split-aware preprocessing
+- [ML Readiness](ml-readiness.md) for deciding which features need scaling first
+- [Book Guide](../book-guide/index.md) for the full Chapter 7 workflow map
+
+## Next Steps
+
+- Read [Dataset Builder](dataset-builder.md) for the end-to-end training-data workflow.
+- Read [ML Readiness](ml-readiness.md) to separate normalized and non-normalized
+  features.
+- Use the [API Reference](../api/index.md) for exact scaler and pipeline objects.

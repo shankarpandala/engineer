@@ -2,7 +2,13 @@
 
 `MLDatasetBuilder` provides leakage-safe dataset preparation for ML training. It handles train/test splitting, automatic scaling (fit on train only), and cross-validation integration with proper fold-level preprocessing.
 
+Use this page when you already have features and labels and want a reusable bridge
+from engineered data to train/test or cross-validation folds.
+
 > **Book**: *ML for Trading, 3rd ed.* — Ch7 `10_ml4t_library_ecosystem.py` demonstrates `MLDatasetBuilder` with triple-barrier labels: features + labels in, scaled train/test split out. Ch7 `02_preprocessing_pipeline.py` covers the underlying preprocessing concepts.
+
+Use the [Book Guide](../book-guide/index.md) if you want the full bridge from the
+Chapter 7 teaching notebooks to reusable dataset workflows in the library.
 
 ## Basic Usage
 
@@ -201,3 +207,16 @@ builder = create_dataset_builder(
 # 4. Train/test split with automatic scaling
 X_train, X_test, y_train, y_test = builder.train_test_split(train_size=0.8)
 ```
+
+## See It In The Book
+
+- Ch7 `10_ml4t_library_ecosystem.py` for the end-to-end dataset-builder workflow
+- Ch7 `02_preprocessing_pipeline.py` for the preprocessing logic that underpins it
+- [Book Guide](../book-guide/index.md) for the surrounding chapter and case-study map
+
+## Next Steps
+
+- Read [Preprocessing](preprocessing.md) for scaler behavior and transform choices.
+- Read [Labeling](labeling.md) if you still need to create supervised targets.
+- Use the [API Reference](../api/index.md) when you need exact builder objects and
+  module paths.

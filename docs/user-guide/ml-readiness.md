@@ -4,6 +4,9 @@ This guide explains the `normalized` field in feature metadata and how to prepar
 
 > **Book**: *ML for Trading, 3rd ed.* — Ch8 `01_price_volume_features.py` compares normalized vs non-normalized features on real ETF data, including preprocessing strategies for each type.
 
+Use this page when you need to decide which features can go straight into a model and
+which ones should pass through a preprocessing step first.
+
 ## Overview
 
 Features in ml4t-engineer have a `normalized` metadata field that indicates whether a feature produces bounded outputs suitable for direct ML consumption:
@@ -176,3 +179,13 @@ result = result.with_columns(
 
 - See [API Reference](../api/index.md) for full metadata API
 - See [Preprocessing](preprocessing.md) for scaler documentation
+- See the [Book Guide](../book-guide/index.md) for the broader chapter and case-study
+  map
+
+## Next Steps
+
+- Read [Preprocessing](preprocessing.md) to scale the non-normalized features.
+- Read [Feature Discovery](discovery.md) to filter features by metadata before model
+  building.
+- Read [Dataset Builder](dataset-builder.md) for train/test splitting and fold-aware
+  scaling.
