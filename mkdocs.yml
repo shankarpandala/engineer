@@ -7,9 +7,10 @@ site_url: https://ml4trading.io/docs/engineer/
 repo_url: https://github.com/ml4t/engineer
 repo_name: ml4t/engineer
 
-# Theme configuration — shared ml4t-docs-theme for website integration
+# Theme configuration — vendored ML4T overlay on top of MkDocs Material
 theme:
-  name: ml4t-docs-theme
+  name: material
+  custom_dir: docs/overrides
 
   palette:
     scheme: default
@@ -117,6 +118,10 @@ nav:
 
 # Extra configuration
 extra:
+  ml4t_docs_hub_url: /docs/
+  ml4t_libraries_url: /libraries/
+  ml4t_chapters_url: /chapters/
+
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/stefan-jansen
